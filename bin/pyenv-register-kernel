@@ -24,7 +24,10 @@ kernel_dir=${jupyter_dir}/kernels/${name}
 
 echo "Installing jupyter kernel file $name for $python to $kerneldir ..."
 
-PYENV_VERSION=$name pyenv exec pip install -U ipykernel
+PYENV_VERSION=$name pyenv exec pip install -U setuptools
+PYENV_VERSION=$name pyenv exec pip install jupyter-client==7.0.6
+PYENV_VERSION=$name pyenv exec pip install tornado==5.1.1
+PYENV_VERSION=$name pyenv exec pip install ipykernel
 
 mkdir -p $kernel_dir
 
